@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-xxxhdpi/bg_btn_logout.xml" value="0.103" />
         <entry key="app/src/main/res/drawable/bg_btn_facebook.xml" value="0.103" />
         <entry key="app/src/main/res/drawable/bg_btn_google.xml" value="0.103" />
+        <entry key="app/src/main/res/drawable/bg_btn_logout.xml" value="0.103" />
         <entry key="app/src/main/res/drawable/bg_btn_primary.xml" value="0.103" />
         <entry key="app/src/main/res/drawable/bg_edit_text.xml" value="0.103" />
         <entry key="app/src/main/res/drawable/bg_forgot_pass.xml" value="0.103" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.14175724637681159" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.21873474121093756" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.14175724637681159" />

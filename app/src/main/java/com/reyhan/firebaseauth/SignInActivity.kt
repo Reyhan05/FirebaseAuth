@@ -1,5 +1,6 @@
 package com.reyhan.firebaseauth
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.reyhan.firebaseauth.databinding.ActivitySignInBinding
@@ -15,6 +16,18 @@ class SignInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initActionBar()
+
+        binding.btnSignIn.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+        binding.btnForgotPass.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
+
+        binding.tbSignIn.setNavigationOnClickListener {
+            finish()
+        }
+
     }
 
     private fun initActionBar() {
