@@ -27,7 +27,6 @@ class SignInActivity : AppCompatActivity() {
         binding.tbSignIn.setNavigationOnClickListener {
             finish()
         }
-
     }
 
     private fun initActionBar() {

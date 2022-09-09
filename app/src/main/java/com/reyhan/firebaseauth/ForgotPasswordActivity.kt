@@ -21,11 +21,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
         binding.btnSendEmail.setOnClickListener {
             Toast.makeText(this, "Send Email", Toast.LENGTH_LONG).show()
         }
-
         binding.tbForgotPass.setNavigationOnClickListener {
             finish()
         }
-
     }
 
     private fun initActionBar() {

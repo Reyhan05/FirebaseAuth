@@ -22,6 +22,5 @@ class AuthActivity : AppCompatActivity() {
         binding.btnSignUpAuth.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
-
     }
 }
