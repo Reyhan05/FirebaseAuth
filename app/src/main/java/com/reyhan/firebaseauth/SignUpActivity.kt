@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.reyhan.firebaseauth.databinding.ActivitySignUpBinding
 
@@ -23,6 +24,7 @@ class SignUpActivity : AppCompatActivity() {
             val pass = binding.etPasswordSignUp.text.toString().trim()
             val confirmPass = binding.etConfirmPasswordSignUp.text.toString().trim()
 
+            CustomDialog.showLoading(this)
             if (checkValidation(email, pass, confirmPass))
                 registerToServer(email, pass)
         }
@@ -37,10 +39,15 @@ class SignUpActivity : AppCompatActivity() {
         FirebaseAuth.getInstance()
             .createUserWithEmailAndPassword(email, pass)
             .addOnCompleteListener {
+                CustomDialog.hideLoading()
                 if (it.isSuccessful) {
                     startActivity(Intent(this, MainActivity::class.java))
                     finishAffinity()
                 }
+            }
+            .addOnFailureListener {
+                CustomDialog.hideLoading()
+                Toast.makeText(this, "Failed Auth", Toast.LENGTH_SHORT).show()
             }
     }
 
@@ -58,6 +65,7 @@ class SignUpActivity : AppCompatActivity() {
             binding.etConfirmPasswordSignUp.error = "Please field your confirm"
             binding.etConfirmPasswordSignUp.requestFocus()
         } else return true
+        CustomDialog.hideLoading()
         return false
     }
 
