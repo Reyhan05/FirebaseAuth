@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import com.google.firebase.auth.FirebaseAuth
 import com.reyhan.firebaseauth.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
@@ -23,13 +24,24 @@ class SignUpActivity : AppCompatActivity() {
             val confirmPass = binding.etConfirmPasswordSignUp.text.toString().trim()
 
             if (checkValidation(email, pass, confirmPass))
-            startActivity(Intent(this, MainActivity::class.java))
+                registerToServer(email, pass)
         }
 
         binding.tbSignUp.setNavigationOnClickListener {
             finish()
         }
 
+    }
+
+    private fun registerToServer(email: String, pass: String) {
+        FirebaseAuth.getInstance()
+            .createUserWithEmailAndPassword(email, pass)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finishAffinity()
+                }
+            }
     }
 
     private fun checkValidation(email: String, pass: String, confirmPass: String): Boolean {
