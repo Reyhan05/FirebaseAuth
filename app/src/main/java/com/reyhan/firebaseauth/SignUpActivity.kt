@@ -32,22 +32,21 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
-
-
     private fun checkValidation(email: String, pass: String, confirmPass: String): Boolean {
-       if (email.isEmpty()){
-           binding.etEmailSignUp.error = "Please field your email"
-           binding.etEmailSignUp.requestFocus()
-       } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-           binding.etEmailSignUp.error = "Please use valid email"
-           binding.etEmailSignUp.requestFocus()
-       } else if (pass.isEmpty()){
-           binding.etPasswordSignUp.error = "Please field your password"
-           binding.etPasswordSignUp.requestFocus()
-       } else if (confirmPass.isEmpty()){
-           binding.etConfirmPasswordSignUp.error = "Please field your confirm"
-           binding.etConfirmPasswordSignUp.requestFocus()
-       }
+        if (email.isEmpty()){
+            binding.etEmailSignUp.error = "Please field your email"
+            binding.etEmailSignUp.requestFocus()
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            binding.etEmailSignUp.error = "Please use valid email"
+            binding.etEmailSignUp.requestFocus()
+        } else if (pass.isEmpty()){
+            binding.etPasswordSignUp.error = "Please field your password"
+            binding.etPasswordSignUp.requestFocus()
+        } else if (confirmPass.isEmpty()){
+            binding.etConfirmPasswordSignUp.error = "Please field your confirm"
+            binding.etConfirmPasswordSignUp.requestFocus()
+        } else return true
+        return false
     }
 
     private fun initActionBar() {
